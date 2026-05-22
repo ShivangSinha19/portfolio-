@@ -224,7 +224,6 @@ export default function Portfolio(){
         .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(99,102,241,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(99,102,241,0.05) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%);} 
         .glow-dot{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;}
         .learning-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.2);border-radius:99px;padding:4px 12px;font-size:12px;color:#67e8f9;font-family:'Space Grotesk',sans-serif;}
-        .featured-pill{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:rgba(99,102,241,0.14);border:1px solid rgba(99,102,241,0.26);color:#c7d2fe;font-size:12px;font-family:'Space Grotesk',sans-serif;font-weight:600;}
         .featured-backdrop{position:absolute;inset:18px 18px auto 18px;height:220px;background:radial-gradient(circle at 18% 22%, rgba(99,102,241,0.2), transparent 45%),radial-gradient(circle at 82% 28%, rgba(6,182,212,0.14), transparent 40%),linear-gradient(180deg, rgba(15,23,42,0.58), rgba(2,6,23,0));filter:blur(6px);pointer-events:none;border-radius:28px;}
         .featured-card{padding:34px;position:relative;overflow:hidden;border-color:rgba(99,102,241,0.28);box-shadow:0 20px 60px rgba(2,6,23,0.35);transform:scale(1.01);z-index:1;}
         .featured-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:24px;align-items:start;}
@@ -241,7 +240,7 @@ export default function Portfolio(){
           nav{align-items:flex-start !important;}
           nav > div:nth-child(2){display:flex !important;flex-wrap:nowrap !important;overflow-x:auto !important;white-space:nowrap !important;max-width:100% !important;gap:6px !important;justify-content:flex-start !important;scrollbar-width:none;}
           nav > div:nth-child(2)::-webkit-scrollbar{display:none;}
-          .featured-pill{display:none !important;}
+          
           .nav-link{flex:0 0 auto;}
           nav > a{align-self:flex-start;}
           .featured-mobile-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
@@ -263,7 +262,6 @@ export default function Portfolio(){
           &lt;SHIVANG/&gt;
         </div>
         <div style={{display:"flex",gap:8,alignItems:"center",flexWrap:"wrap",justifyContent:"center"}}>
-          <span className="featured-pill">Featured</span>
           {NAV_LINKS.map(l=>(
             <span key={l} className={`nav-link${activeNav===l?" active":""}`} onClick={()=>scrollTo(l)}>{l}</span>
           ))}
