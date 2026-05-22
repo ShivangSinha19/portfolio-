@@ -645,7 +645,7 @@ export default function Portfolio(){
 
       {/* FOOTER */}
       <footer style={{textAlign:"center",padding:"24px",borderTop:"1px solid rgba(148,163,184,0.06)",color:"#475569",fontSize:12}}>
-          <span style={{fontFamily:"'Space Grotesk',sans-serif"}}>SHIVANG SINHA · B.E. Computer Science · Sambhram Institute of Technology (VTU) · {new Date().getFullYear()}</span>
+          <span style={{fontFamily:"'Space Grotesk',sans-serif"}}>SHIVANG SINHA · B.E. Computer Science · Sambhram Institute of Technology (VTU) · 2026</span>
         </footer>
     </div>
   );
