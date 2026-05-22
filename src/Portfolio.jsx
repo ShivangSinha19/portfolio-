@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import emailjs from "@emailjs/browser";
 
 const NAV_LINKS = ["Home","About","Projects","Skills","Experience","Certifications","Contact"];
@@ -6,21 +6,46 @@ const NAV_LINKS = ["Home","About","Projects","Skills","Experience","Certificatio
 const PROJECTS = [
           {
             id:1,
+            title:"Smart Document Analyzer",
+            subtitle:"RAG-Powered AI Search · Internship Project",
+            desc:"AI system for document question-answering with semantic search and source-grounded responses.",
+            problem:"Searching large documents manually is slow and inefficient.",
+            solution:"Built a RAG-powered AI system enabling contextual question-answering from uploaded documents.",
+            tech:"React, Python, LangChain, Vector DB, LLM APIs",
+            outcome:"Faster information retrieval and improved document interaction experience.",
+            stack:["React","Python","LangChain","Vector DB","LLM APIs"],
+            color:"#6366f1",
+            icon:"🧠",
+            badge:"Internship Project",
+            github:"https://github.com/ShivangSinha19",
+            demo:"",
+            highlights:["Semantic retrieval with grounded answers","Built during SuprMentr internship","Improved document Q&A workflow"]
+          },
+          {
+            id:2,
             title:"AI-Based Network Anomaly Detection System",
             subtitle:"ML-Based Threat Detection",
-            desc:"Developed an AI model to detect unusual patterns in network traffic to enable early detection of cyber attacks and abnormal behavior. Focused on accuracy and minimizing false positives.",
+            desc:"AI model for detecting unusual network traffic patterns and flagging early security risks.",
+            problem:"Manual network monitoring is slow and makes early threat detection difficult.",
+            solution:"Built an ML-based anomaly detection system to identify unusual traffic patterns automatically.",
+            tech:"Python, Scikit-learn, Pandas, Network Analysis, ML",
+            outcome:"Improved early detection of suspicious behavior while reducing false positives.",
             stack:["Python","Scikit-learn","Pandas","Network Analysis","ML"],
             color:"#06b6d4",
             icon:"🔍",
             github:"https://github.com/ShivangSinha19",
             demo:"",
             highlights:["Real-time anomaly detection","Improved accuracy with feature engineering","Reduced false positives through tuning"]
-                {
-                {label:"shivangsinha.88@outlook.in",icon:"📧",href:"mailto:shivangsinha.88@outlook.in"},
-                {label:"GitHub",icon:"💻",href:"https://github.com/ShivangSinha19"},
-                {label:"LinkedIn",icon:"🔗",href:"https://linkedin.com/in/shivang-sinha-cse"},
-                {label:"+91 82522 27051",icon:"📞",href:"tel:+918252227051"},
-              ].map(l=>(
+          },
+          {
+            id:3,
+            title:"Blockchain-Based Product Authentication",
+            subtitle:"Decentralized Verification System",
+            desc:"Blockchain verification system for secure product registration and traceability.",
+            problem:"Product authenticity and supply-chain validation are hard to trust in centralized workflows.",
+            solution:"Created a blockchain-based verification flow with QR validation and immutable records.",
+            tech:"Python, Solidity, Web3.py, QR Code, Blockchain",
+            outcome:"Enabled tamper-resistant product authentication and supply-chain traceability.",
             stack:["Python","Solidity","Web3.py","QR Code","Blockchain"],
             color:"#f59e0b",
             icon:"⛓️",
@@ -29,10 +54,14 @@ const PROJECTS = [
             highlights:["QR-based product validation","Immutable on-chain records","End-to-end supply-chain traceability"]
           },
           {
-            id:3,
+            id:4,
             title:"Library Management System",
             subtitle:"Full-Stack CRUD Platform",
-            desc:"PHP + MySQL CRUD platform for managing books and users. Handles inventory, user registration, issue/return tracking and admin management through a web interface.",
+            desc:"PHP + MySQL CRUD platform for managing library books, users, and circulation.",
+            problem:"Managing books, users, and issue/return tracking manually is error-prone.",
+            solution:"Built a web-based CRUD system to organize inventory, users, and circulation in one place.",
+            tech:"PHP, MySQL, HTML, CSS, XAMPP, JavaScript",
+            outcome:"Streamlined book management and tracking through a cleaner admin workflow.",
             stack:["PHP","MySQL","HTML","CSS","XAMPP","JavaScript"],
             color:"#10b981",
             icon:"📚",
@@ -46,7 +75,18 @@ const SKILLS = {
           "Languages": [{n:"C",l:80},{n:"Java (beginner)",l:45},{n:"JavaScript",l:78},{n:"PHP",l:70},{n:"SQL",l:72},{n:"Python",l:75}],
           "Frontend": [{n:"HTML/CSS",l:85},{n:"React",l:72}],
           "Backend & Tools": [{n:"XAMPP",l:70},{n:"MySQL",l:75},{n:"Flask/FastAPI (learning)",l:40},{n:"REST APIs",l:60}],
-          "AI/ML": [{n:"Anomaly Detection",l:70},{n:"Data Analysis (basic)",l:60}],
+          "AI/ML": [
+            {n:"Retrieval-Augmented Generation (RAG)",l:85},
+            {n:"LangChain",l:80},
+            {n:"Semantic Search",l:82},
+            {n:"Prompt Engineering",l:78},
+            {n:"Vector Databases",l:75},
+            {n:"Hugging Face",l:74},
+            {n:"OpenAI APIs",l:80},
+            {n:"ChromaDB / FAISS",l:70},
+            {n:"NLP Fundamentals",l:68},
+            {n:"AI-Powered Document Analysis",l:84}
+          ],
           "Concepts": [{n:"Data Structures (learning)",l:40},{n:"Blockchain",l:60},{n:"Cloud Computing",l:55}],
           "Tools": [{n:"Postman",l:75},{n:"VS Code",l:90},{n:"IntelliJ IDEA",l:72},{n:"PyCharm",l:70},{n:"Git",l:82},{n:"APIs",l:75}]
 };
@@ -184,6 +224,37 @@ export default function Portfolio(){
         .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(99,102,241,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(99,102,241,0.05) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%);} 
         .glow-dot{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;}
         .learning-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.2);border-radius:99px;padding:4px 12px;font-size:12px;color:#67e8f9;font-family:'Space Grotesk',sans-serif;}
+        .featured-pill{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:rgba(99,102,241,0.14);border:1px solid rgba(99,102,241,0.26);color:#c7d2fe;font-size:12px;font-family:'Space Grotesk',sans-serif;font-weight:600;}
+        .featured-backdrop{position:absolute;inset:18px 18px auto 18px;height:220px;background:radial-gradient(circle at 18% 22%, rgba(99,102,241,0.2), transparent 45%),radial-gradient(circle at 82% 28%, rgba(6,182,212,0.14), transparent 40%),linear-gradient(180deg, rgba(15,23,42,0.58), rgba(2,6,23,0));filter:blur(6px);pointer-events:none;border-radius:28px;}
+        .featured-card{padding:34px;position:relative;overflow:hidden;border-color:rgba(99,102,241,0.28);box-shadow:0 20px 60px rgba(2,6,23,0.35);transform:scale(1.01);z-index:1;}
+        .featured-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:24px;align-items:start;}
+        .featured-mobile-stats{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+        .featured-promo{display:inline-flex;align-items:center;gap:8px;margin-bottom:18px;padding:8px 14px;border-radius:999px;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.22);color:#c7d2fe;font-size:12px;font-family:'Space Grotesk',sans-serif;}
+        .featured-card-mini{padding:20px;background:rgba(15,23,42,0.72);border-color:rgba(99,102,241,0.18);margin-bottom:14px;}
+        .featured-tags{display:flex;flex-wrap:wrap;gap:6px;}
+        @media (max-width: 900px){
+          nav{padding:10px 12px !important;gap:8px;}
+          .nav-link{padding:5px 10px;font-size:12px;}
+          .featured-grid{grid-template-columns:1fr;}
+        }
+        @media (max-width: 640px){
+          nav{align-items:flex-start !important;}
+          nav > div:nth-child(2){display:flex !important;flex-wrap:nowrap !important;overflow-x:auto !important;white-space:nowrap !important;max-width:100% !important;gap:6px !important;justify-content:flex-start !important;scrollbar-width:none;}
+          nav > div:nth-child(2)::-webkit-scrollbar{display:none;}
+          .featured-pill{display:none !important;}
+          .nav-link{flex:0 0 auto;}
+          nav > a{align-self:flex-start;}
+          .featured-mobile-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+          .featured-card{transform:none;}
+          .featured-card-mini{position:sticky;top:84px;}
+          .featured-promo{width:100%;justify-content:center;}
+          #home{padding-top:112px !important;padding-bottom:24px !important;}
+          #home h1{font-size:clamp(30px,10vw,54px) !important;line-height:1.02 !important;}
+          #home h2{font-size:clamp(16px,5vw,22px) !important;margin-bottom:14px !important;}
+          #home p{font-size:14px !important;line-height:1.65 !important;}
+          #home .hero-actions{gap:10px !important;margin-bottom:24px !important;}
+          #home .hero-actions .btn-outline,#home .hero-actions .btn-primary{padding:9px 14px !important;font-size:12px !important;}
+        }
       `}</style>
 
       {/* NAV */}
@@ -191,7 +262,8 @@ export default function Portfolio(){
         <div style={{fontFamily:"'Space Grotesk',sans-serif",fontWeight:700,fontSize:18,background:"linear-gradient(135deg,#6366f1,#06b6d4)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>
           &lt;SHIVANG/&gt;
         </div>
-        <div style={{display:"flex",gap:4,alignItems:"center",flexWrap:"wrap"}}>
+        <div style={{display:"flex",gap:8,alignItems:"center",flexWrap:"wrap",justifyContent:"center"}}>
+          <span className="featured-pill">Featured</span>
           {NAV_LINKS.map(l=>(
             <span key={l} className={`nav-link${activeNav===l?" active":""}`} onClick={()=>scrollTo(l)}>{l}</span>
           ))}
@@ -210,7 +282,7 @@ export default function Portfolio(){
         <div style={{maxWidth:860,width:"100%",textAlign:"center",position:"relative",zIndex:2}}>
           <div style={{display:"inline-flex",alignItems:"center",gap:8,background:"rgba(99,102,241,0.1)",border:"1px solid rgba(99,102,241,0.25)",borderRadius:99,padding:"6px 16px",marginBottom:24,animation:"float 3s ease-in-out infinite"}}>
             <span style={{width:7,height:7,borderRadius:"50%",background:"#6366f1",display:"inline-block",animation:"pulse 2s ease-in-out infinite"}}/>
-            <span style={{fontSize:13,color:"#a5b4fc",fontFamily:"'Space Grotesk',sans-serif"}}>Open to opportunities · Bangalore, India</span>
+            <span style={{fontSize:13,color:"#a5b4fc",fontFamily:"'Space Grotesk',sans-serif"}}>Bangalore, India</span>
           </div>
 
           <h1 style={{fontFamily:"'Space Grotesk',sans-serif",fontWeight:700,fontSize:"clamp(36px,7vw,72px)",lineHeight:1.05,letterSpacing:"-2px",marginBottom:14,color:"#f8fafc"}}>
@@ -218,16 +290,16 @@ export default function Portfolio(){
           </h1>
 
           <h2 style={{fontFamily:"'Space Grotesk',sans-serif",fontWeight:500,fontSize:"clamp(18px,3vw,28px)",color:"#94a3b8",marginBottom:20,minHeight:40}}>
-            <TypeWriter texts={["AI & Web Developer","Blockchain Builder","Cloud Computing Learner","CSE Undergrad @ VTU"]}/>
+            <TypeWriter texts={["AI & Web Developer","Blockchain Builder","Cloud Computing Learner","Emerging AI/full-stack engineer with practical project experience"]}/>
           </h2>
 
           <p style={{maxWidth:580,margin:"0 auto 32px",fontSize:15,color:"#64748b",lineHeight:1.8}}>
-            Computer Science undergraduate with strong foundations in web development and growing expertise in data structures, AI, blockchain, and cloud computing. Passionate about building intelligent and scalable systems. Seeking opportunities to contribute to innovative tech teams and solve real-world problems.
+            Emerging AI/full-stack engineer with practical project experience. I build intelligent and scalable systems with strong foundations in web development, data structures, AI, blockchain, and cloud computing.
           </p>
 
-          <div style={{display:"flex",gap:12,justifyContent:"center",flexWrap:"wrap",marginBottom:36}}>
+          <div className="hero-actions" style={{display:"flex",gap:12,justifyContent:"center",flexWrap:"wrap",marginBottom:36}}>
             <button className="btn-primary" onClick={()=>scrollTo("Projects")}>View Projects →</button>
-            <button className="btn-outline" onClick={()=>scrollTo("Contact")}>Get In Touch</button>
+            <button className="btn-outline" onClick={()=>scrollTo("featured-internship")}>View Featured Project →</button>
             <a href="https://github.com/ShivangSinha19" target="_blank" rel="noreferrer" style={{textDecoration:"none"}}>
               <button className="btn-outline">GitHub ↗</button>
             </a>
@@ -236,8 +308,8 @@ export default function Portfolio(){
             </a>
           </div>
 
-          <div style={{display:"flex",justifyContent:"center",gap:14,flexWrap:"wrap"}}>
-            {[ ["4","Projects","📂"],["1","Internship","💼"],["5","Certifications","🏆"],["4","Areas of Interest","🎯"] ].map(([v,l,i])=>(
+          <div className="featured-mobile-stats">
+            {[ ["4","Projects","📂"],["1","Featured Internship Project","💼"],["5","Certifications","🏆"],["4","Areas of Interest","🎯"] ].map(([v,l,i])=>(
               <div key={l} style={{background:"rgba(15,23,42,0.65)",border:"1px solid rgba(148,163,184,0.1)",borderRadius:12,padding:"12px 18px",textAlign:"center",minWidth:90}}>
                 <div style={{fontSize:20,fontWeight:700,fontFamily:"'Space Grotesk',sans-serif",color:"#f1f5f9"}}>{i} {v}</div>
                 <div style={{fontSize:11,color:"#64748b"}}>{l}</div>
@@ -255,10 +327,13 @@ export default function Portfolio(){
               <p style={{fontSize:12,color:"#6366f1",fontFamily:"'Space Grotesk',sans-serif",fontWeight:600,letterSpacing:2,marginBottom:10,textTransform:"uppercase"}}>About Me</p>
               <h2 className="section-title" style={{marginBottom:18}}>Building at the edge of AI, Cloud & Blockchain</h2>
               <p style={{color:"#94a3b8",marginBottom:14,lineHeight:1.85,fontSize:15}}>
-                I'm a final-year Computer Science Engineering student at <strong style={{color:"#a5b4fc"}}>Sambhram Institute of Technology (VTU)</strong>, Bangalore, India. My journey started with web fundamentals and has grown into a deep interest in AI systems, blockchain, and cloud-native architecture.
+                I’m Shivang Sinha, a Computer Science Engineering graduate from <strong style={{color:"#a5b4fc"}}>Sambhram Institute of Technology (VTU)</strong>, Bangalore, with a strong focus on AI systems, cloud computing, blockchain, and full-stack development.
               </p>
               <p style={{color:"#94a3b8",marginBottom:20,lineHeight:1.85,fontSize:15}}>
-                I interned at <strong style={{color:"#a5b4fc"}}>SuprMentr</strong> as an AI & Cloud Computing intern, where I worked on AI-driven solutions and cloud-based applications and learned deployment concepts and real-world system workflows.
+                I’ve worked on AI-powered applications including a RAG-based Smart Document Analyzer, AI-driven anomaly detection systems, and blockchain-based solutions. During my internship at <strong style={{color:"#a5b4fc"}}>SuprMentr</strong>, I contributed to AI and cloud computing projects involving real-world deployment workflows and modern software engineering practices.
+              </p>
+              <p style={{color:"#94a3b8",marginBottom:20,lineHeight:1.85,fontSize:15}}>
+                I enjoy building scalable, practical systems that combine intelligent automation with clean user experiences.
               </p>
               <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:14}}>
                 {["AI/ML","Cybersecurity","Blockchain","Cloud Computing"].map(t=>(
@@ -272,10 +347,10 @@ export default function Portfolio(){
             </div>
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14}}>
               {[
-                {icon:"🎓",title:"CSE @ VTU",sub:"2022–2026 · CGPA 6.8"},
+                {icon:"🎓",title:"B.E. Computer Science",sub:"2022–2026 · CGPA 6.8"},
                 {icon:"💼",title:"SuprMentr Intern",sub:"AI & Cloud · Bengaluru"},
                 {icon:"⛓️",title:"Blockchain Dev",sub:"Solidity · Web3.py"},
-                {icon:"🧠",title:"AI Engineer",sub:"Anomaly Detection · RAG"}
+                {icon:"🧠",title:"AI & Full Stack Developer",sub:"Anomaly Detection · RAG"}
               ].map(c=>(
                 <div key={c.title} className="glass-card" style={{padding:"20px 16px"}}>
                   <div style={{fontSize:26,marginBottom:8}}>{c.icon}</div>
@@ -283,6 +358,64 @@ export default function Portfolio(){
                   <div style={{fontSize:12,color:"#64748b"}}>{c.sub}</div>
                 </div>
               ))}
+            </div>
+          </div>
+        </AnimSection>
+      </section>
+
+      {/* FEATURED INTERNSHIP PROJECT */}
+      <section id="featured-internship" style={{padding:"100px 24px",maxWidth:1100,margin:"0 auto",position:"relative",scrollMarginTop:"96px"}}>
+        <div className="featured-backdrop"/>
+        <AnimSection>
+          <p style={{fontSize:12,color:"#6366f1",fontFamily:"'Space Grotesk',sans-serif",fontWeight:600,letterSpacing:2,marginBottom:10,textTransform:"uppercase",textAlign:"center"}}>Featured Internship Project</p>
+          <h2 className="section-title" style={{textAlign:"center",marginBottom:6}}>Smart Document Analyzer</h2>
+          <p className="section-sub" style={{textAlign:"center",marginBottom:30}}>Built during my SuprMentr internship as the primary AI project.</p>
+        </AnimSection>
+
+        <AnimSection delay={80}>
+          <div className="glass-card featured-card">
+            <div style={{position:"absolute",top:0,left:0,right:0,height:4,background:"linear-gradient(90deg,#6366f1,#06b6d4,transparent)"}}/>
+            <div className="featured-grid featured-mobile-order">
+              <div>
+                <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12,flexWrap:"wrap"}}>
+                  <div style={{fontSize:34}}>🧠</div>
+                  <div>
+                    <h3 style={{fontFamily:"'Space Grotesk',sans-serif",fontWeight:700,fontSize:24,color:"#f1f5f9",marginBottom:4}}>Smart Document Analyzer</h3>
+                    <p style={{fontSize:13,color:"#a5b4fc",fontWeight:600}}>RAG-Powered AI Search · Internship Project</p>
+                  </div>
+                </div>
+
+                <p style={{fontSize:14,color:"#94a3b8",lineHeight:1.85,marginBottom:18}}>
+                  AI system for document question-answering with semantic search and source-grounded responses.
+                </p>
+
+                <div style={{display:"grid",gap:10}}>
+                  <div style={{fontSize:13,color:"#cbd5e1"}}><strong style={{color:"#f1f5f9"}}>Problem:</strong> Searching large documents manually is slow and inefficient.</div>
+                  <div style={{fontSize:13,color:"#cbd5e1"}}><strong style={{color:"#f1f5f9"}}>Solution:</strong> Built a RAG-powered AI system enabling contextual question-answering from uploaded documents.</div>
+                  <div style={{fontSize:13,color:"#cbd5e1"}}><strong style={{color:"#f1f5f9"}}>Tech:</strong> React, Python, LangChain, Vector DB, LLM APIs</div>
+                  <div style={{fontSize:13,color:"#cbd5e1"}}><strong style={{color:"#f1f5f9"}}>Outcome:</strong> Faster information retrieval and improved document interaction experience.</div>
+                </div>
+              </div>
+
+              <div>
+                <div className="glass-card featured-card-mini">
+                  <p style={{fontSize:12,color:"#64748b",marginBottom:8,fontFamily:"'Space Grotesk',sans-serif",fontWeight:600,textTransform:"uppercase",letterSpacing:1}}>Why it stands out</p>
+                  <div style={{display:"grid",gap:8}}>
+                    {["Built during internship","Primary AI project","Used RAG architecture","Strong real-world problem solving"].map(item=>(
+                      <div key={item} style={{display:"flex",gap:8,alignItems:"flex-start"}}>
+                        <span style={{color:"#6366f1",marginTop:4,flexShrink:0,fontSize:13}}>✓</span>
+                        <span style={{fontSize:13,color:"#cbd5e1"}}>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="featured-tags">
+                  {["React","Python","LangChain","Vector DB","LLM APIs","RAG"].map(t=>(
+                    <span key={t} className="tag">{t}</span>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </AnimSection>
@@ -329,13 +462,13 @@ export default function Portfolio(){
                   </div>
 
                   <div style={{display:activeProjIdx===i?"block":"none",borderTop:"1px solid rgba(148,163,184,0.08)",paddingTop:14,marginTop:4}}>
-                    <p style={{fontSize:12,color:"#64748b",marginBottom:8,fontFamily:"'Space Grotesk',sans-serif",fontWeight:600,textTransform:"uppercase",letterSpacing:1}}>Highlights</p>
-                    {p.highlights.map(h=>(
-                      <div key={h} style={{display:"flex",alignItems:"center",gap:8,marginBottom:6}}>
-                        <span style={{width:5,height:5,borderRadius:"50%",background:p.color,flexShrink:0,display:"inline-block"}}/>
-                        <span style={{fontSize:13,color:"#cbd5e1"}}>{h}</span>
-                      </div>
-                    ))}
+                    <p style={{fontSize:12,color:"#64748b",marginBottom:10,fontFamily:"'Space Grotesk',sans-serif",fontWeight:600,textTransform:"uppercase",letterSpacing:1}}>Problem → Solution → Tech → Outcome</p>
+                    <div style={{display:"grid",gap:8}}>
+                      <div style={{fontSize:13,color:"#cbd5e1"}}><strong style={{color:"#f1f5f9"}}>Problem:</strong> {p.problem}</div>
+                      <div style={{fontSize:13,color:"#cbd5e1"}}><strong style={{color:"#f1f5f9"}}>Solution:</strong> {p.solution}</div>
+                      <div style={{fontSize:13,color:"#cbd5e1"}}><strong style={{color:"#f1f5f9"}}>Tech:</strong> {p.tech}</div>
+                      <div style={{fontSize:13,color:"#cbd5e1"}}><strong style={{color:"#f1f5f9"}}>Outcome:</strong> {p.outcome}</div>
+                    </div>
                   </div>
 
                   <div style={{fontSize:11,color:"#475569",marginTop:8,textAlign:"right"}}>
@@ -514,8 +647,8 @@ export default function Portfolio(){
 
       {/* FOOTER */}
       <footer style={{textAlign:"center",padding:"24px",borderTop:"1px solid rgba(148,163,184,0.06)",color:"#475569",fontSize:12}}>
-        <span style={{fontFamily:"'Space Grotesk',sans-serif"}}>SHIVANG SINHA · CSE @ Sambhram Institute of Technology, VTU · {new Date().getFullYear()}</span>
-      </footer>
+          <span style={{fontFamily:"'Space Grotesk',sans-serif"}}>SHIVANG SINHA · B.E. Computer Science · Sambhram Institute of Technology (VTU) · {new Date().getFullYear()}</span>
+        </footer>
     </div>
   );
 }
