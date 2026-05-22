@@ -177,16 +177,21 @@ export default function Portfolio(){
 
     if(serviceId && templateId && publicKey){
       try{
-        await emailjs.send(serviceId, templateId, { name: contactState.name, email: contactState.email, message: contactState.message }, publicKey);
+        await emailjs.send(serviceId, templateId, {
+          from_name: contactState.name,
+          from_email: contactState.email,
+          message: contactState.message,
+        }, publicKey);
         setSent(true);
+        alert("Message sent successfully!");
       }catch(err){
         console.error("EmailJS send error", err);
-        // fallback to local confirmation
-        setSent(true);
+        alert("Failed to send message.");
       }
     }else{
       // fallback behaviour when EmailJS not configured
       setSent(true);
+      alert("EmailJS is not configured yet.");
     }
 
     setTimeout(()=>setSent(false),4000);
@@ -529,7 +534,7 @@ export default function Portfolio(){
                   <p style={{color:"#6366f1",fontWeight:600,fontFamily:"'Space Grotesk',sans-serif",fontSize:15}}>SuprMentr · Bengaluru, India</p>
                 </div>
                 <span style={{background:"rgba(99,102,241,0.12)",color:"#a5b4fc",padding:"6px 14px",borderRadius:20,fontSize:13,height:"fit-content",fontFamily:"'Space Grotesk',sans-serif",fontWeight:500}}>
-                  2024
+                  2026
                 </span>
               </div>
                   <p style={{color:"#94a3b8",lineHeight:1.85,marginBottom:18,fontSize:15}}>
