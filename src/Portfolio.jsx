@@ -4,64 +4,51 @@ import emailjs from "@emailjs/browser";
 const NAV_LINKS = ["Home","About","Projects","Skills","Experience","Certifications","Contact"];
 
 const PROJECTS = [
-  {
-    id:1,
-    title:"Smart Document Analyzer",
-    subtitle:"RAG-Powered AI Search · SuprMentr Internship",
-    desc:"Built during my internship at SuprMentr — a Retrieval-Augmented Generation system that ingests documents, builds semantic vector indexes, and returns contextually accurate AI responses with source grounding. Included a responsive React frontend with document upload workflows.",
-    stack:["Python","React","RAG","Vector DB","LLM APIs","Embeddings","Cloud"],
-    color:"#6366f1",
-    icon:"🧠",
-    badge:"Internship Project",
-    github:"https://github.com/ShivangSinha19",
-    demo:"https://github.com/ShivangSinha19",
-    highlights:["Semantic document retrieval with context grounding","Responsive React upload & query interface","Full AI pipeline: embeddings → vector store → LLM response","Deployed on cloud infrastructure"]
-  },
-  {
-    id:2,
-    title:"AI Network Anomaly Detector",
-    subtitle:"ML-Based Threat Detection",
-    desc:"Built an AI model to detect unusual patterns in network traffic using machine learning. Focused on early detection of cyber attacks and abnormal behavior, with emphasis on accuracy and minimizing false positives.",
-    stack:["Python","Scikit-learn","Pandas","Network Analysis","ML"],
-    color:"#06b6d4",
-    icon:"🔍",
-    github:"https://github.com/ShivangSinha19",
-    demo:"https://github.com/ShivangSinha19",
-    highlights:["Real-time anomaly detection","Reduces false positives","Security threat classification"]
-  },
-  {
-    id:3,
-    title:"Blockchain Product Authentication",
-    subtitle:"Decentralized Verification System",
-    desc:"Decentralized product verification system using Python, Solidity, and Web3. Features QR-based validation, secure product registration, and end-to-end supply-chain traceability on the blockchain.",
-    stack:["Python","Solidity","Web3.py","QR Code","Blockchain"],
-    color:"#f59e0b",
-    icon:"⛓️",
-    github:"https://github.com/ShivangSinha19",
-    demo:"https://github.com/ShivangSinha19",
-    highlights:["QR-based product validation","Immutable on-chain records","Supply chain traceability"]
-  },
-  {
-    id:4,
-    title:"Library Management System",
-    subtitle:"Full-Stack CRUD Platform",
-    desc:"PHP + MySQL CRUD platform for managing books and users at a library scale. Handles book inventory, user registration, issue/return tracking, and admin management through a clean web interface.",
-    stack:["PHP","MySQL","HTML","CSS","XAMPP","JavaScript"],
-    color:"#10b981",
-    icon:"📚",
-    github:"https://github.com/ShivangSinas19",
-    demo:"https://github.com/ShivangSinas19",
-    highlights:["Book issue & return tracking","User & admin roles","Full CRUD operations"]
-  }
+          {
+            id:1,
+            title:"AI-Based Network Anomaly Detection System",
+            subtitle:"ML-Based Threat Detection",
+            desc:"Developed an AI model to detect unusual patterns in network traffic to enable early detection of cyber attacks and abnormal behavior. Focused on accuracy and minimizing false positives.",
+            stack:["Python","Scikit-learn","Pandas","Network Analysis","ML"],
+            color:"#06b6d4",
+            icon:"🔍",
+            github:"https://github.com/ShivangSinha19",
+            demo:"",
+            highlights:["Real-time anomaly detection","Improved accuracy with feature engineering","Reduced false positives through tuning"]
+                {
+                {label:"shivangsinha.88@outlook.in",icon:"📧",href:"mailto:shivangsinha.88@outlook.in"},
+                {label:"GitHub",icon:"💻",href:"https://github.com/ShivangSinha19"},
+                {label:"LinkedIn",icon:"🔗",href:"https://linkedin.com/in/shivang-sinha-cse"},
+                {label:"+91 82522 27051",icon:"📞",href:"tel:+918252227051"},
+              ].map(l=>(
+            stack:["Python","Solidity","Web3.py","QR Code","Blockchain"],
+            color:"#f59e0b",
+            icon:"⛓️",
+            github:"https://github.com/ShivangSinha19",
+            demo:"",
+            highlights:["QR-based product validation","Immutable on-chain records","End-to-end supply-chain traceability"]
+          },
+          {
+            id:3,
+            title:"Library Management System",
+            subtitle:"Full-Stack CRUD Platform",
+            desc:"PHP + MySQL CRUD platform for managing books and users. Handles inventory, user registration, issue/return tracking and admin management through a web interface.",
+            stack:["PHP","MySQL","HTML","CSS","XAMPP","JavaScript"],
+            color:"#10b981",
+            icon:"📚",
+            github:"https://github.com/ShivangSinha19",
+            demo:"",
+            highlights:["Book issue & return tracking","User & admin roles","Full CRUD operations"]
+          }
 ];
 
 const SKILLS = {
-  "AI/ML":    [{n:"RAG Systems",l:78},{n:"LLM APIs",l:80},{n:"Vector DBs",l:75},{n:"Embeddings",l:76}],
-  "Frontend": [{n:"HTML/CSS",l:85},{n:"React",l:72},{n:"JavaScript",l:78},{n:"Responsive Design",l:75}],
-  "Backend":  [{n:"PHP",l:78},{n:"MySQL",l:80},{n:"Flask/FastAPI",l:55},{n:"REST APIs",l:65}],
-  "Languages":[{n:"C",l:80},{n:"JavaScript",l:78},{n:"Python",l:75},{n:"Java",l:45}],
-  "Blockchain":[{n:"Solidity",l:65},{n:"Web3.py",l:62},{n:"Smart Contracts",l:60},{n:"QR Integration",l:70}],
-  "Tools":    [{n:"Git",l:82},{n:"VS Code",l:90},{n:"Postman",l:75},{n:"IntelliJ",l:72}]
+          "Languages": [{n:"C",l:80},{n:"Java (beginner)",l:45},{n:"JavaScript",l:78},{n:"PHP",l:70},{n:"SQL",l:72},{n:"Python",l:75}],
+          "Frontend": [{n:"HTML/CSS",l:85},{n:"React",l:72}],
+          "Backend & Tools": [{n:"XAMPP",l:70},{n:"MySQL",l:75},{n:"Flask/FastAPI (learning)",l:40},{n:"REST APIs",l:60}],
+          "AI/ML": [{n:"Anomaly Detection",l:70},{n:"Data Analysis (basic)",l:60}],
+          "Concepts": [{n:"Data Structures (learning)",l:40},{n:"Blockchain",l:60},{n:"Cloud Computing",l:55}],
+          "Tools": [{n:"Postman",l:75},{n:"VS Code",l:90},{n:"IntelliJ IDEA",l:72},{n:"PyCharm",l:70},{n:"Git",l:82},{n:"APIs",l:75}]
 };
 
 const CERTS = [
@@ -202,7 +189,7 @@ export default function Portfolio(){
       {/* NAV */}
       <nav style={{position:"fixed",top:0,left:0,right:0,zIndex:999,padding:"14px 24px",display:"flex",alignItems:"center",justifyContent:"space-between"}} className="glass">
         <div style={{fontFamily:"'Space Grotesk',sans-serif",fontWeight:700,fontSize:18,background:"linear-gradient(135deg,#6366f1,#06b6d4)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>
-          &lt;Shivang/&gt;
+          &lt;SHIVANG/&gt;
         </div>
         <div style={{display:"flex",gap:4,alignItems:"center",flexWrap:"wrap"}}>
           {NAV_LINKS.map(l=>(
@@ -223,11 +210,11 @@ export default function Portfolio(){
         <div style={{maxWidth:860,width:"100%",textAlign:"center",position:"relative",zIndex:2}}>
           <div style={{display:"inline-flex",alignItems:"center",gap:8,background:"rgba(99,102,241,0.1)",border:"1px solid rgba(99,102,241,0.25)",borderRadius:99,padding:"6px 16px",marginBottom:24,animation:"float 3s ease-in-out infinite"}}>
             <span style={{width:7,height:7,borderRadius:"50%",background:"#6366f1",display:"inline-block",animation:"pulse 2s ease-in-out infinite"}}/>
-            <span style={{fontSize:13,color:"#a5b4fc",fontFamily:"'Space Grotesk',sans-serif"}}>Open to opportunities · Bengaluru, India</span>
+            <span style={{fontSize:13,color:"#a5b4fc",fontFamily:"'Space Grotesk',sans-serif"}}>Open to opportunities · Bangalore, India</span>
           </div>
 
           <h1 style={{fontFamily:"'Space Grotesk',sans-serif",fontWeight:700,fontSize:"clamp(36px,7vw,72px)",lineHeight:1.05,letterSpacing:"-2px",marginBottom:14,color:"#f8fafc"}}>
-            Shivang Sinha
+            SHIVANG SINHA
           </h1>
 
           <h2 style={{fontFamily:"'Space Grotesk',sans-serif",fontWeight:500,fontSize:"clamp(18px,3vw,28px)",color:"#94a3b8",marginBottom:20,minHeight:40}}>
@@ -235,7 +222,7 @@ export default function Portfolio(){
           </h2>
 
           <p style={{maxWidth:580,margin:"0 auto 32px",fontSize:15,color:"#64748b",lineHeight:1.8}}>
-            CSE student at Sambhram Institute of Technology building intelligent and scalable systems. From AI anomaly detection to blockchain authentication — I solve real-world problems with code.
+            Computer Science undergraduate with strong foundations in web development and growing expertise in data structures, AI, blockchain, and cloud computing. Passionate about building intelligent and scalable systems. Seeking opportunities to contribute to innovative tech teams and solve real-world problems.
           </p>
 
           <div style={{display:"flex",gap:12,justifyContent:"center",flexWrap:"wrap",marginBottom:36}}>
@@ -268,10 +255,10 @@ export default function Portfolio(){
               <p style={{fontSize:12,color:"#6366f1",fontFamily:"'Space Grotesk',sans-serif",fontWeight:600,letterSpacing:2,marginBottom:10,textTransform:"uppercase"}}>About Me</p>
               <h2 className="section-title" style={{marginBottom:18}}>Building at the edge of AI, Cloud & Blockchain</h2>
               <p style={{color:"#94a3b8",marginBottom:14,lineHeight:1.85,fontSize:15}}>
-                I'm a final-year Computer Science Engineering student at <strong style={{color:"#a5b4fc"}}>Sambhram Institute of Technology (VTU)</strong>, Bengaluru. My journey started with web fundamentals and has grown into a deep interest in AI systems, blockchain, and cloud-native architecture.
+                I'm a final-year Computer Science Engineering student at <strong style={{color:"#a5b4fc"}}>Sambhram Institute of Technology (VTU)</strong>, Bangalore, India. My journey started with web fundamentals and has grown into a deep interest in AI systems, blockchain, and cloud-native architecture.
               </p>
               <p style={{color:"#94a3b8",marginBottom:20,lineHeight:1.85,fontSize:15}}>
-                I interned at <strong style={{color:"#a5b4fc"}}>SuprMentr</strong> as an AI & Cloud Computing intern, where I worked on real-world AI-driven solutions and learned deployment workflows. I'm currently leveling up in DSA, Java, System Design, and API development.
+                I interned at <strong style={{color:"#a5b4fc"}}>SuprMentr</strong> as an AI & Cloud Computing intern, where I worked on AI-driven solutions and cloud-based applications and learned deployment concepts and real-world system workflows.
               </p>
               <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:14}}>
                 {["AI/ML","Cybersecurity","Blockchain","Cloud Computing"].map(t=>(
@@ -414,17 +401,14 @@ export default function Portfolio(){
                   2024
                 </span>
               </div>
-              <p style={{color:"#94a3b8",lineHeight:1.85,marginBottom:18,fontSize:15}}>
-                Built GenAI applications and cloud-integrated systems at SuprMentr. Primary ownership of a Smart Document Analyzer using RAG — from AI pipeline design to the React frontend. Worked hands-on with embeddings, vector databases, and LLM APIs in a production environment.
+                  <p style={{color:"#94a3b8",lineHeight:1.85,marginBottom:18,fontSize:15}}>
+                Worked on AI-driven solutions and cloud-based applications at SuprMentr. Learned deployment concepts and real-world system workflows. (Add specific achievements here for stronger impact.)
               </p>
               <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(240px,1fr))",gap:10,marginBottom:18}}>
                 {[
-                  "Built Smart Document Analyzer using RAG",
-                  "Semantic document retrieval for AI responses",
-                  "Designed responsive React frontend modules",
-                  "Implemented document upload workflows",
-                  "Worked with embeddings & vector DBs",
-                  "Collaborated on practical GenAI applications"
+                  "Worked on AI-driven solutions and cloud-based applications",
+                  "Learned deployment concepts and production workflows",
+                  "Collaborated on AI pipelines and frontend integrations"
                 ].map(item=>(
                   <div key={item} style={{display:"flex",gap:8,alignItems:"flex-start"}}>
                     <span style={{color:"#6366f1",marginTop:4,flexShrink:0,fontSize:13}}>✓</span>
@@ -433,7 +417,7 @@ export default function Portfolio(){
                 ))}
               </div>
               <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
-                {["React","Python","RAG","Vector DB","LLM APIs","Cloud","Embeddings"].map(t=>(
+                {["React","Python","AI/ML","Vector DB","Cloud","Embeddings"].map(t=>(
                   <span key={t} className="tag">{t}</span>
                 ))}
               </div>
@@ -530,7 +514,7 @@ export default function Portfolio(){
 
       {/* FOOTER */}
       <footer style={{textAlign:"center",padding:"24px",borderTop:"1px solid rgba(148,163,184,0.06)",color:"#475569",fontSize:12}}>
-        <span style={{fontFamily:"'Space Grotesk',sans-serif"}}>Shivang Sinha · CSE @ Sambhram Institute of Technology, VTU · {new Date().getFullYear()}</span>
+        <span style={{fontFamily:"'Space Grotesk',sans-serif"}}>SHIVANG SINHA · CSE @ Sambhram Institute of Technology, VTU · {new Date().getFullYear()}</span>
       </footer>
     </div>
   );
