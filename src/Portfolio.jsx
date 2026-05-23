@@ -327,7 +327,7 @@ export default function Portfolio(){
           </h1>
 
             <h2 style={{fontFamily:"'Space Grotesk',sans-serif",fontWeight:500,fontSize:"clamp(18px,3vw,28px)",color:"#94a3b8",marginBottom:20,minHeight:40}}>
-            <TypeWriter texts={["AI & Web Developer","Blockchain Builder","Cloud Computing Learner","Full-stack Engineer"]}/>
+            <TypeWriter texts={["AI & Web Developer","Blockchain Builder","Cloud & Backend Enthusiast","Cloud-Native Developer","AI & Cloud Developer","Full-stack Engineer"]}/>
           </h2>
 
           <p style={{maxWidth:580,margin:"0 auto 32px",fontSize:15,color:"#64748b",lineHeight:1.8}}>
@@ -337,6 +337,9 @@ export default function Portfolio(){
           <div className="hero-actions" style={{display:"flex",gap:12,justifyContent:"center",flexWrap:"wrap",marginBottom:36}}>
             <button className="btn-primary" onClick={()=>scrollTo("Projects")}>View Projects →</button>
             <button className="btn-outline" onClick={()=>scrollTo("featured-internship")}>View Featured Project →</button>
+            <a href="/resume.pdf" download style={{textDecoration:"none"}}>
+              <button className="btn-primary">Download Resume</button>
+            </a>
             <a href="https://github.com/ShivangSinha19" target="_blank" rel="noreferrer" style={{textDecoration:"none"}}>
               <button className="btn-outline">GitHub ↗</button>
             </a>
