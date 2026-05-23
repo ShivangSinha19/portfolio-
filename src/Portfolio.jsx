@@ -305,7 +305,7 @@ export default function Portfolio(){
             <span key={l} className={`nav-link${activeNav===l?" active":""}`} onClick={()=>scrollTo(l)}>{l}</span>
           ))}
         </div>
-        <a href="mailto:shivangsinha.88@outlook.in">
+        <a href="mailto:shivangshinha.8@gmail.com">
           <button className="btn-primary" style={{padding:"8px 18px",fontSize:13}}>Hire Me →</button>
         </a>
       </nav>
@@ -665,7 +665,7 @@ export default function Portfolio(){
 
             <div style={{display:"flex",justifyContent:"center",gap:12,marginTop:24,flexWrap:"wrap"}}>
               {[
-                {label:"shivangsinha.88@outlook.in",icon:"📧",href:"mailto:shivangsinha.88@outlook.in"},
+                {label:"shivangshinha.8@gmail.com",icon:"📧",href:"mailto:shivangshinha.8@gmail.com"},
                 {label:"GitHub",icon:"💻",href:"https://github.com/ShivangSinha19"},
                 {label:"LinkedIn",icon:"🔗",href:"https://linkedin.com/in/shivang-sinha-cse"},
                 {label:" +91 82522 27051",icon:"📞",href:"tel:+918252227051"},
