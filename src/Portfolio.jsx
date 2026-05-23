@@ -219,8 +219,8 @@ export default function Portfolio(){
         setSent(true);
         alert("Message sent successfully!");
       }catch(err){
-        console.error("EmailJS send error", err);
-        alert("Failed to send message.");
+        console.error(err);
+        alert(err && err.text ? err.text : "Failed to send message.");
       }
     }else{
       // fallback behaviour when EmailJS not configured
