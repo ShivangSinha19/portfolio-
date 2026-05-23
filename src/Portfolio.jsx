@@ -71,24 +71,57 @@ const PROJECTS = [
           }
 ];
 
+// Convert numeric scores to human-friendly levels: Proficient / Intermediate / Beginner
+const mapLevel = (n) => {
+  if (n >= 80) return "Proficient";
+  if (n >= 60) return "Intermediate";
+  return "Beginner";
+};
+
 const SKILLS = {
-          "Languages": [{n:"C",l:80},{n:"Java (beginner)",l:45},{n:"JavaScript",l:78},{n:"PHP",l:70},{n:"SQL",l:72},{n:"Python",l:75}],
-          "Frontend": [{n:"HTML/CSS",l:85},{n:"React",l:72}],
-          "Backend & Tools": [{n:"XAMPP",l:70},{n:"MySQL",l:75},{n:"Flask/FastAPI (learning)",l:40},{n:"REST APIs",l:60}],
-          "AI/ML": [
-            {n:"Retrieval-Augmented Generation (RAG)",l:85},
-            {n:"LangChain",l:80},
-            {n:"Semantic Search",l:82},
-            {n:"Prompt Engineering",l:78},
-            {n:"Vector Databases",l:75},
-            {n:"Hugging Face",l:74},
-            {n:"OpenAI APIs",l:80},
-            {n:"ChromaDB / FAISS",l:70},
-            {n:"NLP Fundamentals",l:68},
-            {n:"AI-Powered Document Analysis",l:84}
-          ],
-          "Concepts": [{n:"Data Structures (learning)",l:40},{n:"Blockchain",l:60},{n:"Cloud Computing",l:55}],
-          "Tools": [{n:"Postman",l:75},{n:"VS Code",l:90},{n:"IntelliJ IDEA",l:72},{n:"PyCharm",l:70},{n:"Git",l:82},{n:"APIs",l:75}]
+  "Languages": [
+    {n: "C", level: mapLevel(80)},
+    {n: "Java (beginner)", level: mapLevel(45)},
+    {n: "JavaScript", level: mapLevel(78)},
+    {n: "PHP", level: mapLevel(70)},
+    {n: "SQL", level: mapLevel(72)},
+    {n: "Python", level: mapLevel(75)}
+  ],
+  "Frontend": [
+    {n: "HTML/CSS", level: mapLevel(85)},
+    {n: "React", level: mapLevel(72)}
+  ],
+  "Backend & Tools": [
+    {n: "XAMPP", level: mapLevel(70)},
+    {n: "MySQL", level: mapLevel(75)},
+    {n: "Flask/FastAPI (learning)", level: mapLevel(40)},
+    {n: "REST APIs", level: mapLevel(60)}
+  ],
+  "AI/ML": [
+    {n: "Retrieval-Augmented Generation (RAG)", level: mapLevel(85)},
+    {n: "LangChain", level: mapLevel(80)},
+    {n: "Semantic Search", level: mapLevel(82)},
+    {n: "Prompt Engineering", level: mapLevel(78)},
+    {n: "Vector Databases", level: mapLevel(75)},
+    {n: "Hugging Face", level: mapLevel(74)},
+    {n: "OpenAI APIs", level: mapLevel(80)},
+    {n: "ChromaDB / FAISS", level: mapLevel(70)},
+    {n: "NLP Fundamentals", level: mapLevel(68)},
+    {n: "AI-Powered Document Analysis", level: mapLevel(84)}
+  ],
+  "Concepts": [
+    {n: "Data Structures (learning)", level: mapLevel(40)},
+    {n: "Blockchain", level: mapLevel(60)},
+    {n: "Cloud Computing", level: mapLevel(55)}
+  ],
+  "Tools": [
+    {n: "Postman", level: mapLevel(75)},
+    {n: "VS Code", level: mapLevel(90)},
+    {n: "IntelliJ IDEA", level: mapLevel(72)},
+    {n: "PyCharm", level: mapLevel(70)},
+    {n: "Git", level: mapLevel(82)},
+    {n: "APIs", level: mapLevel(75)}
+  ]
 };
 
 const CERTS = [
@@ -140,16 +173,17 @@ function TypeWriter({texts}){
   return<span>{txt}<span style={{animation:"blink 1s step-end infinite",borderRight:"2px solid #6366f1",marginLeft:2}}>&nbsp;</span></span>;
 }
 
-function SkillBar({name,level,color,delay}){
+function SkillBar({name,levelLabel,color,delay}){
   const[ref,vis]=useInView();
   return(
-    <div ref={ref} style={{marginBottom:14}}>
-      <div style={{display:"flex",justifyContent:"space-between",marginBottom:5}}>
-        <span style={{fontSize:13,color:"#cbd5e1"}}>{name}</span>
-        <span style={{fontSize:12,color:"#64748b"}}>{level}%</span>
+    <div ref={ref} style={{marginBottom:14,display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+      <div>
+        <div style={{fontSize:13,color:"#cbd5e1"}}>{name}</div>
+        <div style={{fontSize:12,color:"#64748b",marginTop:6}}>{/* space for compact spacing */}</div>
       </div>
-      <div style={{height:4,background:"#1e293b",borderRadius:99}}>
-        <div style={{height:4,borderRadius:99,background:color,width:vis?`${level}%`:"0%",transition:`width 1.1s ease ${delay}ms`}}/>
+      <div style={{display:"inline-flex",alignItems:"center",gap:8}}>
+        <span style={{display:"inline-block",width:10,height:10,borderRadius:99,background:color,boxShadow:vis?`0 6px 18px ${color}33`:"none"}}/>
+        <span style={{fontSize:13,color:"#94a3b8",fontWeight:600}}>{levelLabel}</span>
       </div>
     </div>
   );
@@ -292,12 +326,12 @@ export default function Portfolio(){
             SHIVANG SINHA
           </h1>
 
-          <h2 style={{fontFamily:"'Space Grotesk',sans-serif",fontWeight:500,fontSize:"clamp(18px,3vw,28px)",color:"#94a3b8",marginBottom:20,minHeight:40}}>
-            <TypeWriter texts={["AI & Web Developer","Blockchain Builder","Cloud Computing Learner","Emerging AI/full-stack engineer with practical project experience"]}/>
+            <h2 style={{fontFamily:"'Space Grotesk',sans-serif",fontWeight:500,fontSize:"clamp(18px,3vw,28px)",color:"#94a3b8",marginBottom:20,minHeight:40}}>
+            <TypeWriter texts={["AI & Web Developer","Blockchain Builder","Cloud Computing Learner","Full-stack Engineer"]}/>
           </h2>
 
           <p style={{maxWidth:580,margin:"0 auto 32px",fontSize:15,color:"#64748b",lineHeight:1.8}}>
-            Emerging AI/full-stack engineer with practical project experience. I build intelligent and scalable systems with strong foundations in web development, data structures, AI, blockchain, and cloud computing.
+            AI & full-stack engineer with practical project experience. I build intelligent and scalable systems with strong foundations in web development, data structures, AI, blockchain, and cloud computing.
           </p>
 
           <div className="hero-actions" style={{display:"flex",gap:12,justifyContent:"center",flexWrap:"wrap",marginBottom:36}}>
@@ -350,7 +384,7 @@ export default function Portfolio(){
             </div>
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14}}>
               {[
-                {icon:"🎓",title:"B.E. Computer Science",sub:"2022–2026 · CGPA 6.8"},
+                {icon:"🎓",title:"B.E. Computer Science",sub:"2022–2026 · VTU"},
                 {icon:"💼",title:"SuprMentr Intern",sub:"AI & Cloud · Bengaluru"},
                 {icon:"⛓️",title:"Blockchain Dev",sub:"Solidity · Web3.py"},
                 {icon:"🧠",title:"AI & Full Stack Developer",sub:"Anomaly Detection · RAG"}
@@ -507,7 +541,7 @@ export default function Portfolio(){
 
           <div className="glass-card" style={{padding:32,maxWidth:560,margin:"0 auto"}}>
             {SKILLS[activeSkillTab].map((s,i)=>(
-              <SkillBar key={s.n} name={s.n} level={s.l}
+              <SkillBar key={s.n} name={s.n} levelLabel={s.level}
                 color={accentColors[Object.keys(SKILLS).indexOf(activeSkillTab)%accentColors.length]}
                 delay={i*80}/>
             ))}
